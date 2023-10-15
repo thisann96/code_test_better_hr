@@ -1,0 +1,66 @@
+scalar Upload
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload")
+    
+type Employee {
+    id: ID!
+    first_name: String!
+    last_name: String!
+    email: String!
+    phone: String!
+    address: String!
+    salary: Float!
+    created_at: DateTime!
+}
+
+type EmployeeList {
+    data: [Employee!]!
+    meta: PaginationMeta!
+}
+
+type PaginationMeta {
+    total: Int!
+    per_page: Int!
+    current_page: Int!
+    last_page: Int!
+}
+
+extend type Query @guard @auth {
+    employees(page: Int = 1, per_page: Int = 10): EmployeeList!
+}
+
+input EmployeeInput {
+    first_name: String!
+    last_name: String!
+    email: String!
+    phone: String!
+    address: String!
+    salary: Float!
+}
+
+extend type Mutation @guard @auth {
+    createEmployee(input: EmployeeInput!): EmployeeResponse!
+    updateEmployee(id: ID!, input: EmployeeInput!): EmployeeResponse!
+    deleteEmployee(id: ID!): EmployeeDeleteResponse!
+    importEmployees(file: Upload!): ImportResponse!
+    exportEmployees: ExportResponse!
+}
+
+type EmployeeResponse {
+    success: Boolean!
+    message: String
+    employee: Employee
+}
+
+type EmployeeDeleteResponse {
+    success: Boolean!
+    message: String
+}
+
+type ImportResponse {
+    success: Boolean!
+    message: String!
+}
+
+type ExportResponse {
+    url: String!
+}
