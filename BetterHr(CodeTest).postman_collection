@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "ed05f2a5-51a5-4411-b566-ef0ccc01e450",
+		"name": "BetterHr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29056837",
+		"_collection_link": "https://fast-move.postman.co/workspace/Fast-Move~79e7af4e-1eeb-49be-a414-da74a6f708df/collection/29056837-ed05f2a5-51a5-4411-b566-ef0ccc01e450?action=share&source=collection_link&creator=29056837"
+	},
+	"item": [
+		{
+			"name": "Graphql",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Me",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzI3MmI4MTE1ODM3MDhkODJiZWNlOGY2Y2FhYmU0ZGQ1MzgzNmNiZTIxZGZiM2ZlMDVhNzk3OGQ3ODIxOTUzNjcwYjMzMjMxOTRjZDBjMTUiLCJpYXQiOjE2OTczNTE3MzYuMjMzNTg4LCJuYmYiOjE2OTczNTE3MzYuMjMzNTkyLCJleHAiOjE3Mjg5NzQxMzYuMjExODg0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aLdXfjOVMC-2aZ2ASATjwedjtK3-ZXNfIzbiceZgHNJLxAquh7P2SpVNlfiARj0B-7fBl5MQSHxHr0XdQt79id3sdXSnpAzGO-4NuuOq-r5gnuULIy8fJ10CFkOQsZbBKYcPnZNUwZ0u5PSW69QlnF7JGK7w_DiLflpnTSwtkrJIq5H3kNlmoWLmfdSTgZtnouqzB2nvjOFGO1W3Ne31vwT27EZ7jn4IgbfY1CzLIqsuWQVMyVR8l4KQDqqGlGx7YRn54TM7X8cb3pJoz2W8iwjDLlzRa7u6143XWnUwRlC9gZudGKn2846AGh9KfkaBFDB1-_X2mENL2EPld6tbOPfxRNHLq6-G5pv6l3yIfh0GafKNaS-Up87v10KpNrpQte5fZQdWMJAUlhMjkKNckHmkL8e4Ep4TVAaYgJfVRHdCIGm95YeUpY6RJmvvZfF9F4irP5SoSi50sxRe7X6dC8WJK-xGaKfK4USCLazFtgwTyKXhK7zQNNBjpB7Cyn3tQaHfcvHTsR54-aHPhiMmmrukPSgKnmAW8jNkO18-jDIOxCOD3ojENiGEzABNyFVpE8Q2RPcCEYtdhOlxItcC6CdPSs8MkFAGvPVVDobeihAjev23u-J-0gMEq-scDUgmz9IAmF2nFG-mLgnIlI-Q0iwrs3RwsRp9bNGMAPfn3Ns",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "{\r\n  \r\n  me{\r\n    id\r\n    name\r\n    email\r\n    created_at\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}/{{graphql_prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{graphql_prefix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation {\r\n  login(name: \"Admin\", password: \"password\") {\r\n    success\r\n    user {\r\n      id\r\n      name\r\n      email\r\n      created_at\r\n    }\r\n    token\r\n  }\r\n}\r\n\r\n\r\n",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}/{{graphql_prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{graphql_prefix}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFjN2E5NTQ5MTUyNzg2ZmRkMTQ5OWQ0MTM0NWYxYjM4NWI0OWYwMzMwMDliNGI0YWZmNTQzZDM5ZTdkOWJhMjgyZjJlMGFjOTE2OWNhZTAiLCJpYXQiOjE2OTczNTU1MzguMDY0ODU3LCJuYmYiOjE2OTczNTU1MzguMDY0ODYyLCJleHAiOjE3Mjg5Nzc5MzguMDU3NDE5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.BVG5a9Q9_O-Wv_OqNhJ9331ViHI75xLI4oa9itbU3rHfFyPDIT7GZnUo4-cUDZQmoPYD0mCOXncEpv0nd6fVIpoR9QRWFYbjTUOREZSZ9N2Kl39IjAWIHMcLg0q3oqDjYgLIgtLbOLsURauufg_4GgixmXxEMpvTH3g99au8MG4ggLiEd3ZRwyLvZuz5EJMK2htMZNv4fca5JD7iMVRY_pv1X46l-pIHWNa5uHFrO5QX-6rBtzupKl03qA3ktcnX-Usc8C8pnwi-ACdG4jDFDwyyBfXdWPHD4ZxJQGxbdc5Tgn6invKm6Wbp7JuVMkRjVOWIcQ_KvlzcqU_gZaen8MnrX55mNPBWQI9CUrirf6xZkYSeaHFq_2a3-CMnNzusn36mbSH5vYuqI0VQkl2CpHieJ45RwESzGhRhd8rnDaOOcNxfBfKA6X9icliNd8cYpmjZgaeuboQWCgND9wtAH-m6sDcle6wtSt5xa55OVbA9K15HEKGM_dvA7IQIPoqPx_F1yiY2ULeaEcTmfEnt7Io7SbBld11ZgGTtTU2wZZLb5Ywzwf8-YvI064fFVEPakUBXVZrszXRw92C0WxPQsb-7lTFi2aN5bORL_OOZeFgemlfjschp0FUjPJ8sj-ac8Xu_4Q2zb6dV4XgfEFJgC7L7CL2OUIKHD5G4ASEzitM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  employees(page: 1, per_page: 10) {\r\n    data {\r\n      id\r\n      first_name\r\n      last_name\r\n      email\r\n      phone\r\n      address\r\n      salary\r\n      created_at\r\n    }\r\n    meta {\r\n      total\r\n      per_page\r\n      current_page\r\n      last_page\r\n    }\r\n  }\r\n}\r\n",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}/{{graphql_prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{graphql_prefix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzI3MmI4MTE1ODM3MDhkODJiZWNlOGY2Y2FhYmU0ZGQ1MzgzNmNiZTIxZGZiM2ZlMDVhNzk3OGQ3ODIxOTUzNjcwYjMzMjMxOTRjZDBjMTUiLCJpYXQiOjE2OTczNTE3MzYuMjMzNTg4LCJuYmYiOjE2OTczNTE3MzYuMjMzNTkyLCJleHAiOjE3Mjg5NzQxMzYuMjExODg0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aLdXfjOVMC-2aZ2ASATjwedjtK3-ZXNfIzbiceZgHNJLxAquh7P2SpVNlfiARj0B-7fBl5MQSHxHr0XdQt79id3sdXSnpAzGO-4NuuOq-r5gnuULIy8fJ10CFkOQsZbBKYcPnZNUwZ0u5PSW69QlnF7JGK7w_DiLflpnTSwtkrJIq5H3kNlmoWLmfdSTgZtnouqzB2nvjOFGO1W3Ne31vwT27EZ7jn4IgbfY1CzLIqsuWQVMyVR8l4KQDqqGlGx7YRn54TM7X8cb3pJoz2W8iwjDLlzRa7u6143XWnUwRlC9gZudGKn2846AGh9KfkaBFDB1-_X2mENL2EPld6tbOPfxRNHLq6-G5pv6l3yIfh0GafKNaS-Up87v10KpNrpQte5fZQdWMJAUlhMjkKNckHmkL8e4Ep4TVAaYgJfVRHdCIGm95YeUpY6RJmvvZfF9F4irP5SoSi50sxRe7X6dC8WJK-xGaKfK4USCLazFtgwTyKXhK7zQNNBjpB7Cyn3tQaHfcvHTsR54-aHPhiMmmrukPSgKnmAW8jNkO18-jDIOxCOD3ojENiGEzABNyFVpE8Q2RPcCEYtdhOlxItcC6CdPSs8MkFAGvPVVDobeihAjev23u-J-0gMEq-scDUgmz9IAmF2nFG-mLgnIlI-Q0iwrs3RwsRp9bNGMAPfn3Ns",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"query\": \"mutation($input: EmployeeInput!) { createEmployee(input: $input) { success, message, employee { id, first_name, last_name, email, phone, address, salary } } }\",\r\n    \"variables\": {\r\n        \"input\": {\r\n            \"first_name\": \"John\",\r\n            \"last_name\": \"Doe\",\r\n            \"email\": \"johsnws.doe@example.com\",\r\n            \"phone\": \"1223425678920\",\r\n            \"address\": \"123 Main St\",\r\n            \"salary\": 50000.0\r\n        }\r\n    }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/{{prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{prefix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGI3MzAyMjM1YjEwODRhYjYzZTBiODY4N2MxMmFmZDIwOWQxYWUyNzkzMjQ5M2M4MmM0MzZkNWU5N2EyZjQzMDI0YThmOTUwZTgyMmY1ZjIiLCJpYXQiOjE2OTcyODU2NjcuNjI2NjU4LCJuYmYiOjE2OTcyODU2NjcuNjI2NjY2LCJleHAiOjE3Mjg5MDgwNjcuNjE1NzUxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.n_MopOGrQpTcl5Fvm9V4Y0g4oFwxY6AeZ8sl_O3ESMHtL0wLcfTc0cv0M-MR4KYofuO_5Pvw_5Qx9A8C--FHRJiI-xbrE4S95HCSGGzNSgwYgZdkJIIiiRJjrnRIfN_HheL_khICgSFSjVp7bN42ihY5t0X3ifJnffa_aUajqKtE5BoVvQbORlc0e3QicX46NwuIkgx1vRSvhFUMsKA085WBagPM8tY_l7EZC3bk7ZFSHwOrTh0s2np0PyEQkcpo5sQlM5Cr2EWGA0UT2QNOePOIhr3TpX9RfFJMGKOXIexwLpSYzLnyZL95vNl007465rJ9i4_gd_R3qHE-vWyrs_HkeUt1yaCF3Zh3g2aOJb9MRlBdxIZZtHpOmZQkuZ3rYOYq01SWzr0Qm8Bw_J243y0lhIclhWVJNwk7S0zXIoR1Sq8e0Uz0_1sSUO5X8fpdZal7xryLjyBP8fecJ4TZE4M5r4y3xQN7AIOB5XompBDG-POUxEphp4yKqNvvcpgzXt0tuQtRI-PdmQ81IMlOVKJ73PuPaTIOe5EhU87JD0Ecnbm6dfMeNQ48wQWGKFAQWsueka6dWRo7QgJN7IYR5bntHSO4EqraQX6D1VzBsIBr2sA47DCQ4oVPa3vwIWsCBcghoYWtST3xyeQ6mLq_7m4S_waH6PSMb-9_eSbX_Iw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"query\": \"mutation($id: ID!, $input: EmployeeInput!) { updateEmployee(id: $id, input: $input) { success, message, employee { id, first_name, last_name, email, phone, address, salary } } }\",\r\n    \"variables\": {\r\n        \"id\": 2, // Replace with the ID of the employee you want to update\r\n        \"input\": {\r\n            \"first_name\": \"UpdatedFirstName\",\r\n            \"last_name\": \"UpdatedLastName\",\r\n            \"email\": \"updated.email@example.com\",\r\n            \"phone\": \"9876543210\",\r\n            \"address\": \"456 Updated St\",\r\n            \"salary\": 60000.0\r\n        }\r\n    }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/{{prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{prefix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzI3MmI4MTE1ODM3MDhkODJiZWNlOGY2Y2FhYmU0ZGQ1MzgzNmNiZTIxZGZiM2ZlMDVhNzk3OGQ3ODIxOTUzNjcwYjMzMjMxOTRjZDBjMTUiLCJpYXQiOjE2OTczNTE3MzYuMjMzNTg4LCJuYmYiOjE2OTczNTE3MzYuMjMzNTkyLCJleHAiOjE3Mjg5NzQxMzYuMjExODg0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aLdXfjOVMC-2aZ2ASATjwedjtK3-ZXNfIzbiceZgHNJLxAquh7P2SpVNlfiARj0B-7fBl5MQSHxHr0XdQt79id3sdXSnpAzGO-4NuuOq-r5gnuULIy8fJ10CFkOQsZbBKYcPnZNUwZ0u5PSW69QlnF7JGK7w_DiLflpnTSwtkrJIq5H3kNlmoWLmfdSTgZtnouqzB2nvjOFGO1W3Ne31vwT27EZ7jn4IgbfY1CzLIqsuWQVMyVR8l4KQDqqGlGx7YRn54TM7X8cb3pJoz2W8iwjDLlzRa7u6143XWnUwRlC9gZudGKn2846AGh9KfkaBFDB1-_X2mENL2EPld6tbOPfxRNHLq6-G5pv6l3yIfh0GafKNaS-Up87v10KpNrpQte5fZQdWMJAUlhMjkKNckHmkL8e4Ep4TVAaYgJfVRHdCIGm95YeUpY6RJmvvZfF9F4irP5SoSi50sxRe7X6dC8WJK-xGaKfK4USCLazFtgwTyKXhK7zQNNBjpB7Cyn3tQaHfcvHTsR54-aHPhiMmmrukPSgKnmAW8jNkO18-jDIOxCOD3ojENiGEzABNyFVpE8Q2RPcCEYtdhOlxItcC6CdPSs8MkFAGvPVVDobeihAjev23u-J-0gMEq-scDUgmz9IAmF2nFG-mLgnIlI-Q0iwrs3RwsRp9bNGMAPfn3Ns",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"query\": \"mutation($id: ID!) { deleteEmployee(id: $id) {success,message}}\",\r\n    \"variables\": {\r\n        \"id\": 2\r\n    }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/{{graphql_prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{graphql_prefix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "export",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzI3MmI4MTE1ODM3MDhkODJiZWNlOGY2Y2FhYmU0ZGQ1MzgzNmNiZTIxZGZiM2ZlMDVhNzk3OGQ3ODIxOTUzNjcwYjMzMjMxOTRjZDBjMTUiLCJpYXQiOjE2OTczNTE3MzYuMjMzNTg4LCJuYmYiOjE2OTczNTE3MzYuMjMzNTkyLCJleHAiOjE3Mjg5NzQxMzYuMjExODg0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aLdXfjOVMC-2aZ2ASATjwedjtK3-ZXNfIzbiceZgHNJLxAquh7P2SpVNlfiARj0B-7fBl5MQSHxHr0XdQt79id3sdXSnpAzGO-4NuuOq-r5gnuULIy8fJ10CFkOQsZbBKYcPnZNUwZ0u5PSW69QlnF7JGK7w_DiLflpnTSwtkrJIq5H3kNlmoWLmfdSTgZtnouqzB2nvjOFGO1W3Ne31vwT27EZ7jn4IgbfY1CzLIqsuWQVMyVR8l4KQDqqGlGx7YRn54TM7X8cb3pJoz2W8iwjDLlzRa7u6143XWnUwRlC9gZudGKn2846AGh9KfkaBFDB1-_X2mENL2EPld6tbOPfxRNHLq6-G5pv6l3yIfh0GafKNaS-Up87v10KpNrpQte5fZQdWMJAUlhMjkKNckHmkL8e4Ep4TVAaYgJfVRHdCIGm95YeUpY6RJmvvZfF9F4irP5SoSi50sxRe7X6dC8WJK-xGaKfK4USCLazFtgwTyKXhK7zQNNBjpB7Cyn3tQaHfcvHTsR54-aHPhiMmmrukPSgKnmAW8jNkO18-jDIOxCOD3ojENiGEzABNyFVpE8Q2RPcCEYtdhOlxItcC6CdPSs8MkFAGvPVVDobeihAjev23u-J-0gMEq-scDUgmz9IAmF2nFG-mLgnIlI-Q0iwrs3RwsRp9bNGMAPfn3Ns",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation {\r\n  exportEmployees {\r\n    url\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}/{{graphql_prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{graphql_prefix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "import",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzI3MmI4MTE1ODM3MDhkODJiZWNlOGY2Y2FhYmU0ZGQ1MzgzNmNiZTIxZGZiM2ZlMDVhNzk3OGQ3ODIxOTUzNjcwYjMzMjMxOTRjZDBjMTUiLCJpYXQiOjE2OTczNTE3MzYuMjMzNTg4LCJuYmYiOjE2OTczNTE3MzYuMjMzNTkyLCJleHAiOjE3Mjg5NzQxMzYuMjExODg0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aLdXfjOVMC-2aZ2ASATjwedjtK3-ZXNfIzbiceZgHNJLxAquh7P2SpVNlfiARj0B-7fBl5MQSHxHr0XdQt79id3sdXSnpAzGO-4NuuOq-r5gnuULIy8fJ10CFkOQsZbBKYcPnZNUwZ0u5PSW69QlnF7JGK7w_DiLflpnTSwtkrJIq5H3kNlmoWLmfdSTgZtnouqzB2nvjOFGO1W3Ne31vwT27EZ7jn4IgbfY1CzLIqsuWQVMyVR8l4KQDqqGlGx7YRn54TM7X8cb3pJoz2W8iwjDLlzRa7u6143XWnUwRlC9gZudGKn2846AGh9KfkaBFDB1-_X2mENL2EPld6tbOPfxRNHLq6-G5pv6l3yIfh0GafKNaS-Up87v10KpNrpQte5fZQdWMJAUlhMjkKNckHmkL8e4Ep4TVAaYgJfVRHdCIGm95YeUpY6RJmvvZfF9F4irP5SoSi50sxRe7X6dC8WJK-xGaKfK4USCLazFtgwTyKXhK7zQNNBjpB7Cyn3tQaHfcvHTsR54-aHPhiMmmrukPSgKnmAW8jNkO18-jDIOxCOD3ojENiGEzABNyFVpE8Q2RPcCEYtdhOlxItcC6CdPSs8MkFAGvPVVDobeihAjev23u-J-0gMEq-scDUgmz9IAmF2nFG-mLgnIlI-Q0iwrs3RwsRp9bNGMAPfn3Ns",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "operations",
+											"value": "{\n  \"query\": \"mutation($file: Upload!) { importEmployees(file: $file) { success, message } }\",\n  \"variables\": {\n    \"file\": null\n  }\n}\n",
+											"type": "text"
+										},
+										{
+											"key": "0",
+											"type": "file",
+											"src": "/C:/Users/uu/Downloads/test.xlsx"
+										},
+										{
+											"key": "map",
+											"value": "{\n  \"0\": [\"variables.file\"]\n}\n",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/{{graphql_prefix}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{graphql_prefix}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "RESTAPI",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/{{prefix}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{prefix}}",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzk4ZjQ2YWQyZTBkMGJkYTcxZTZlYmU2MDhiZmY5NWFkZGY2OTJjZWJmMTI5OGI1NmYzYzljMWJhYTQ4MjA1YTdkZTBmOTJjYzFhZGVkY2EiLCJpYXQiOjE2OTczNTMyMzkuMzUwNTA3LCJuYmYiOjE2OTczNTMyMzkuMzUwNTExLCJleHAiOjE3Mjg5NzU2MzkuMzQyNTU0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ih_8G1F3AnBT2e3krtMTcIMZjxOl0-fNRCxbk7cOPhVaDjDN6RXTGcnjaAZ3t1O0sM_9C1mE7pxQsgtD9ghS-EHxnDpRNcYWqCFlt1vXWIdHbxX5AJPT3atkXLa0dIXL1d3C-FOqNEu3wwJcXQct1Lj3SvshufmdhNCdRltNT10cKi_RDsD6P6Jf2fzZUelncwWme02nzi4xtmYqpX1P4rTj3DJUMjao0PGIKMhK5p7vwKhnXoEbbQnl5SnOfEdHqb7uKGRyO6hyT_ZI1EtHl_mLtDcWdPY99qxWeb4XsT38Gt4P1I0Z2UfqTPpDoZoJherUurrfMSeYBGhUie-Ud5OWAB0aAGKLTydX7qB9E1-F8vLFfustcsVQgJH_pbspE_8oCbIOAaFi53Eht-al80gqrphmi2oN4NqVfDwqDj-qMAqC8lA0oR_ZchlbUyXYMCGA8i_41CxAnPwFKNGpPMnXwFHLEd0USA309Zfy_m_NiZkmsCc30o46VHrL7mrlRjkLTh6Fu8gU4bYZbuDawEU2ZFsiAT0ZMwOwVtF-CcCDE6eTDp_8vYgPou75mkF0t-44KXNAROhoAduU73Eelm-u_QA58M75cqYtVG7dfteZ5EbmrctZv2oSJIlIzqC2nOSxNUu0hsZ-f9PRB9eykIhMSpDs8-CHOUKfpcChi50",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/{{prefix}}/employee",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{prefix}}",
+										"employee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzk4ZjQ2YWQyZTBkMGJkYTcxZTZlYmU2MDhiZmY5NWFkZGY2OTJjZWJmMTI5OGI1NmYzYzljMWJhYTQ4MjA1YTdkZTBmOTJjYzFhZGVkY2EiLCJpYXQiOjE2OTczNTMyMzkuMzUwNTA3LCJuYmYiOjE2OTczNTMyMzkuMzUwNTExLCJleHAiOjE3Mjg5NzU2MzkuMzQyNTU0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ih_8G1F3AnBT2e3krtMTcIMZjxOl0-fNRCxbk7cOPhVaDjDN6RXTGcnjaAZ3t1O0sM_9C1mE7pxQsgtD9ghS-EHxnDpRNcYWqCFlt1vXWIdHbxX5AJPT3atkXLa0dIXL1d3C-FOqNEu3wwJcXQct1Lj3SvshufmdhNCdRltNT10cKi_RDsD6P6Jf2fzZUelncwWme02nzi4xtmYqpX1P4rTj3DJUMjao0PGIKMhK5p7vwKhnXoEbbQnl5SnOfEdHqb7uKGRyO6hyT_ZI1EtHl_mLtDcWdPY99qxWeb4XsT38Gt4P1I0Z2UfqTPpDoZoJherUurrfMSeYBGhUie-Ud5OWAB0aAGKLTydX7qB9E1-F8vLFfustcsVQgJH_pbspE_8oCbIOAaFi53Eht-al80gqrphmi2oN4NqVfDwqDj-qMAqC8lA0oR_ZchlbUyXYMCGA8i_41CxAnPwFKNGpPMnXwFHLEd0USA309Zfy_m_NiZkmsCc30o46VHrL7mrlRjkLTh6Fu8gU4bYZbuDawEU2ZFsiAT0ZMwOwVtF-CcCDE6eTDp_8vYgPou75mkF0t-44KXNAROhoAduU73Eelm-u_QA58M75cqYtVG7dfteZ5EbmrctZv2oSJIlIzqC2nOSxNUu0hsZ-f9PRB9eykIhMSpDs8-CHOUKfpcChi50",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "myat",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "my2ywa3wt@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "093213231135",
+											"type": "text"
+										},
+										{
+											"key": "salary",
+											"value": "20000000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/{{prefix}}/employee/store",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{prefix}}",
+										"employee",
+										"store"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzk4ZjQ2YWQyZTBkMGJkYTcxZTZlYmU2MDhiZmY5NWFkZGY2OTJjZWJmMTI5OGI1NmYzYzljMWJhYTQ4MjA1YTdkZTBmOTJjYzFhZGVkY2EiLCJpYXQiOjE2OTczNTMyMzkuMzUwNTA3LCJuYmYiOjE2OTczNTMyMzkuMzUwNTExLCJleHAiOjE3Mjg5NzU2MzkuMzQyNTU0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ih_8G1F3AnBT2e3krtMTcIMZjxOl0-fNRCxbk7cOPhVaDjDN6RXTGcnjaAZ3t1O0sM_9C1mE7pxQsgtD9ghS-EHxnDpRNcYWqCFlt1vXWIdHbxX5AJPT3atkXLa0dIXL1d3C-FOqNEu3wwJcXQct1Lj3SvshufmdhNCdRltNT10cKi_RDsD6P6Jf2fzZUelncwWme02nzi4xtmYqpX1P4rTj3DJUMjao0PGIKMhK5p7vwKhnXoEbbQnl5SnOfEdHqb7uKGRyO6hyT_ZI1EtHl_mLtDcWdPY99qxWeb4XsT38Gt4P1I0Z2UfqTPpDoZoJherUurrfMSeYBGhUie-Ud5OWAB0aAGKLTydX7qB9E1-F8vLFfustcsVQgJH_pbspE_8oCbIOAaFi53Eht-al80gqrphmi2oN4NqVfDwqDj-qMAqC8lA0oR_ZchlbUyXYMCGA8i_41CxAnPwFKNGpPMnXwFHLEd0USA309Zfy_m_NiZkmsCc30o46VHrL7mrlRjkLTh6Fu8gU4bYZbuDawEU2ZFsiAT0ZMwOwVtF-CcCDE6eTDp_8vYgPou75mkF0t-44KXNAROhoAduU73Eelm-u_QA58M75cqYtVG7dfteZ5EbmrctZv2oSJIlIzqC2nOSxNUu0hsZ-f9PRB9eykIhMSpDs8-CHOUKfpcChi50",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "moedd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "moe@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0988",
+											"type": "text"
+										},
+										{
+											"key": "salary",
+											"value": "1000000",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "21",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/{{prefix}}/employee/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{prefix}}",
+										"employee",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
